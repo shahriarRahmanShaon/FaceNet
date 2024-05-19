@@ -159,11 +159,11 @@ class FrameViewController: UIViewController {
         //                self.showDiaglog3s(name: TAKE_PHOTO_NAME, false)
         //            }
         //        }
-        fb.uploadLogTimes(user: user) { error in
-            if error != nil {
-                self.showDiaglog3s(name: TAKE_PHOTO_NAME, false)
-            }
-        }
+//        fb.uploadLogTimes(user: user) { error in
+//            if error != nil {
+//                self.showDiaglog3s(name: TAKE_PHOTO_NAME, false)
+//            }
+//        }
         
     }
     
@@ -351,18 +351,18 @@ extension FrameViewController {
                 print("Detected")
                 if localUserList.count == 0 {
                     print("append 1")
-                    speak(name: label)
+                    //speak(name: label)
                     trainingDataset.saveImage(detectedUser.image, for: detectedUser.name)
                     localUserList.append(detectedUser)
                     
                     //upload to firebase db
-                    fb.uploadLogTimes(user: detectedUser)  {
-                        error in
-                        if error != nil {
-                            self.showDiaglog3s(name: label, false)
-                        }
-                        
-                    }
+//                    fb.uploadLogTimes(user: detectedUser)  {
+//                        error in
+//                        if error != nil {
+//                            self.showDiaglog3s(name: label, false)
+//                        }
+//                        
+//                    }
                     showDiaglog3s(name: label, true)
                 }
                 else  {
@@ -381,12 +381,12 @@ extension FrameViewController {
                                     
                                     
                                     //upload to firebase db
-                                    fb.uploadLogTimes(user: detectedUser)  {
-                                        error in
-                                        if error != nil {
-                                            self.showDiaglog3s(name: label, false)
-                                        }
-                                    }
+//                                    fb.uploadLogTimes(user: detectedUser)  {
+//                                        error in
+//                                        if error != nil {
+//                                            self.showDiaglog3s(name: label, false)
+//                                        }
+//                                    }
                                     showDiaglog3s(name: label, true)
                                 }
                             }
@@ -402,11 +402,11 @@ extension FrameViewController {
                         speak(name: label)
                         trainingDataset.saveImage(detectedUser.image, for: detectedUser.name)
                         //upload to firebase db
-                        fb.uploadLogTimes(user: detectedUser) { error in
-                            if error != nil {
-                                self.showDiaglog3s(name: label, false)
-                            }
-                        }
+//                        fb.uploadLogTimes(user: detectedUser) { error in
+//                            if error != nil {
+//                                self.showDiaglog3s(name: label, false)
+//                            }
+//                        }
                         localUserList.append(detectedUser)
                         localUserList = localUserList.sorted(by: { $0.time > $1.time })
                         showDiaglog3s(name: label, true)
